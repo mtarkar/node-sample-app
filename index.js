@@ -1,14 +1,11 @@
-const express = require('express')
-
-const app = express()
+const fs = require('fs')
 
 
-app.get('/', (req, res) => {
-    console.log('Hello Server')
 
-
+fs.readFile('hello.txt', 'utf-8', (err, data) => {
+    if (err) {
+        console.log(err)
+    }
+    console.log(data)
 })
 
-app.listen(5000, () => {
-    console.log('Server Started!')
-})
